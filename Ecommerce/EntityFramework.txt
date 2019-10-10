@@ -1,0 +1,35 @@
+﻿		--INSTRUÇÕES SOBRE O EF CORE--
+
+
+1- Install-PackageMicrosoft.FrameworkCore.SqlServer -Version:2.1.11
+
+2- Criar as classes de modelo
+
+3- Criar classe de contexto
+
+	-- Herdar do DbContext
+	-- Criar o construtor
+	-- Criar o DbSet de cada classe de modelo
+
+4- Configurar o serviço no banco de dados na classe startup.cs
+
+5- Criar a string de conexão no arquivo appsettings.json
+
+6 - Adicionar uma migração = Add-Migration NomeMigracao
+
+7 - Atualizar o banco de dados = Update-Database -verbose
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
