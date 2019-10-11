@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Ecommerce.DAL;
 using Ecommerce.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,7 +34,13 @@ namespace Ecommerce
             });
             //****Comando para criar o banco de dados apartir da classe context*****
             services.AddDbContext<Context>(options => options.UseSqlServer(Configuration.GetConnectionString("EcommerceConnection")));
-            //********************
+            
+
+            //Confiurando a injeção de dependência
+            services.AddScoped<ProdutoDAO>();
+            //*****************************
+
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -56,7 +63,7 @@ namespace Ecommerce
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Produto}/{action=Cadastrar}/{id?}");
             });
         }
     }
